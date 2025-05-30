@@ -3,6 +3,7 @@
 use actix_web::{HttpResponse, web};
 
 #[derive(serde::Deserialize)]
+#[allow(dead_code)]
 pub struct SubscriptionData {
     name: String,
     email: String,

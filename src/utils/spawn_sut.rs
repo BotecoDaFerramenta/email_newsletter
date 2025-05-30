@@ -8,6 +8,7 @@ pub fn spawn_sut() -> String {
 
     let port = listener.local_addr().unwrap().port();
     let server = run(listener).expect("Failed to bind address");
+    #[allow(clippy::let_underscore_future)]
     let _ = tokio::spawn(server);
     format!("http://127.0.0.1:{}", port)
 }
