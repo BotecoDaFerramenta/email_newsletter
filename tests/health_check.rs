@@ -1,9 +1,11 @@
 //! tests/health_check.rs
 
+use email_newsletter::utils::spawn_sut;
+
 #[tokio::test]
 async fn health_check_works() {
     // Arrange
-    let address = email_newsletter::spawn_sut();
+    let address = spawn_sut();
     let client = reqwest::Client::new();
 
     // Act

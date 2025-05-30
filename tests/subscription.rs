@@ -1,8 +1,10 @@
 //! tests/subscription.rs
 
+use email_newsletter::utils::spawn_sut;
+
 #[tokio::test]
 async fn subscribe_return_a_200_for_valid_form_data() {
-    let sut_address = email_newsletter::spawn_sut();
+    let sut_address = spawn_sut();
     let client = reqwest::Client::new();
 
     let body = "name=John%20Doe&email=john.doe%40example.com";
@@ -19,7 +21,7 @@ async fn subscribe_return_a_200_for_valid_form_data() {
 
 #[tokio::test]
 async fn subscribe_return_a_400_when_data_is_missing() {
-    let sut_address = email_newsletter::spawn_sut();
+    let sut_address = spawn_sut();
     let client = reqwest::Client::new();
 
     let test_cases = vec![

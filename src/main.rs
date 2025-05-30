@@ -1,6 +1,6 @@
 //! main.rs
 
-use email_newsletter::run;
+use email_newsletter::startup::run;
 use std::net::TcpListener;
 
 #[tokio::main]
